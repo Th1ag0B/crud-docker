@@ -1,6 +1,6 @@
 services:
   app:
-    build: .
+    image: th1ag0/express-crud:latest
     environment:
       NODE_ENV: production
       POSTGRES_USER: ${POSTGRES_USER}
