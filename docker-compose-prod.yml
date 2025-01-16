@@ -30,7 +30,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - carros-armazenados-prod:/var/lib/postgresql/data
+      - produtos-armazenados-prod:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
@@ -39,4 +39,4 @@ services:
       start_period: 10s
 
 volumes:
-  carros-armazenados-prod:
+  produtos-armazenados-prod:

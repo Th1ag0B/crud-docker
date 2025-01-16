@@ -23,9 +23,9 @@ const swaggerOpcoes = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "API de Produtos",
-      version: "1.0.0",
-      description: "Uma API simples de produtos",
+      title: "API de Produtos by Tiago",
+      version: "2.0.0",
+      description: "Uma API simples de produtos by Tiago Barros",
     },
     servers: [
       {
@@ -34,16 +34,15 @@ const swaggerOpcoes = {
       },
     ],
   },
-  apis: ["./server.js"], // Caminho para a documentação da API
+  apis: ["./server.js"], 
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOpcoes);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-// Middleware para limitar as requisições e evitar abusos
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // Limitar cada IP a 100 requisições por janela
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
   message: "Muitas requisições, tente novamente mais tarde.",
 });
 
@@ -194,7 +193,7 @@ app.post(
       res.status(201).json({ mensagem: "Produto criado com sucesso", produto: result.rows[0] });
     } catch (error) {
       console.error(error);
-      if (error.code === '23505') { // Violação de restrição única (e.g., duplicação de entrada)
+      if (error.code === '23505') { 
         return res.status(400).json({ erro: "Produto com esta descrição já existe" });
       }
       res.status(500).json({ erro: "Ocorreu um erro ao criar o produto", detalhes: error.message });
@@ -305,7 +304,7 @@ app.delete("/produtos/:id", async (req, res) => {
     res.sendStatus(204);
   } catch (error) {
     console.error(error);
-    if (error.code === '23503') { // Violação de chave estrangeira
+    if (error.code === '23503') { 
       return res.status(400).json({ erro: "Não é possível apagar o produto devido a dependências" });
     }
     res.status(500).json({ erro: "Ocorreu um erro ao apagar o produto", detalhes: error.message });

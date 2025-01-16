@@ -34,7 +34,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: devdb
     volumes:
-      - carros-armazenados-dev:/var/lib/postgresql/data
+      - produtos-armazenados-dev:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     healthcheck:
@@ -45,4 +45,4 @@ services:
       start_period: 10s
 
 volumes:
-  carros-armazenados-dev:
+  produtos-armazenados-dev:

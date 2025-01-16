@@ -8,7 +8,9 @@
     "dev:docker": "docker-compose -f docker-compose-dev.yml up --build -d",
     "prod:docker": "docker-compose -f docker-compose-prod.yml up --build",
     "prod:docker:logs": "docker-compose -f docker-compose-prod.yml up --build -d",
-    "dev:docker:logs": "docker-compose -f docker-compose-dev.yml up"
+    "dev:docker:logs": "docker-compose -f docker-compose-dev.yml up",
+    "prod:docker:down": "docker-compose -f docker-compose-prod.yml down",
+    "dev:docker:down": "docker-compose -f docker-compose-dev.yml down"
   },
   "keywords": [],
   "author": "",
